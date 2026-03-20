@@ -59,7 +59,7 @@ export default function ContactForm() {
             className={`absolute left-4 transition-all duration-300 pointer-events-none z-10 ${
               focused === field || formData[field as keyof typeof formData]
                 ? "-top-2.5 text-[10px] text-accent-light/70 bg-smoky-black px-1"
-                : "top-3.5 text-sm text-light-gray/35"
+                : "top-3.5 text-sm text-light-gray/55"
             }`}
           >
             {field === "name" ? "Name" : field === "email" ? "Email" : "Tell me about your project..."}
@@ -69,6 +69,7 @@ export default function ContactForm() {
               id={field}
               required
               rows={5}
+              maxLength={5000}
               value={formData.message}
               onFocus={() => setFocused(field)}
               onBlur={() => setFocused(null)}
@@ -80,12 +81,16 @@ export default function ContactForm() {
               id={field}
               type={field === "email" ? "email" : "text"}
               required
+              maxLength={field === "email" ? 320 : 200}
               value={formData[field as keyof typeof formData]}
               onFocus={() => setFocused(field)}
               onBlur={() => setFocused(null)}
               onChange={(e) => setFormData((p) => ({ ...p, [field]: e.target.value }))}
               className={fieldClass}
             />
+          )}
+          {field === "message" && formData.message.length > 4500 && (
+            <p className="mt-1 text-xs text-light-gray/50">{formData.message.length}/5000</p>
           )}
         </div>
       ))}

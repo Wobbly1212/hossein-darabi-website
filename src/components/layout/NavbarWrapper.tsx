@@ -1,7 +1,7 @@
 "use client";
 
 import { Home, User, Briefcase, Mail } from "lucide-react";
-import { NavBar } from "@/components/ui/tubelight-navbar";
+import { NavBar } from "@/components/ui/TubelightNavbar";
 
 const navItems = [
   { name: "Home", url: "/", icon: Home },

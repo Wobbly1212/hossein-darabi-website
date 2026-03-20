@@ -4,8 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-
-const EMAIL = "innovator.h.darabi@gmail.com";
+import { siteConfig } from "@/lib/config";
 
 export default function ContactCTA() {
   return (
@@ -30,7 +29,7 @@ export default function ContactCTA() {
           <h2 className="font-display mt-6 text-4xl text-white-1 md:text-5xl lg:text-6xl">
             Have a project in mind?
           </h2>
-          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-light-gray/60">
+          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-light-gray/70">
             I&apos;m open to collaborations, job opportunities, and interesting
             problems. Whether you need AI solutions, data analytics, or a
             custom digital product.
@@ -43,12 +42,12 @@ export default function ContactCTA() {
               Get in Touch
               <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <span className="text-sm text-light-gray/25">or</span>
+            <span className="text-sm text-light-gray/30">or</span>
             <a
-              href={`mailto:${EMAIL}`}
-              className="text-sm text-light-gray/60 underline decoration-white-1/10 underline-offset-4 transition-colors hover:text-accent-light hover:decoration-accent/30"
+              href={`mailto:${siteConfig.email}`}
+              className="text-sm text-light-gray/70 underline decoration-white-1/10 underline-offset-4 transition-colors hover:text-accent-light hover:decoration-accent/30"
             >
-              {EMAIL}
+              {siteConfig.email}
             </a>
           </div>
         </AnimatedSection>

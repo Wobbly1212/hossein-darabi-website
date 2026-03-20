@@ -4,7 +4,8 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ContactForm from "@/components/contact/ContactForm";
 
-const EMAIL = "innovator.h.darabi@gmail.com";
+import { siteConfig } from "@/lib/config";
+const EMAIL = siteConfig.email;
 
 export const metadata: Metadata = {
   title: "Contact — Hossein Darabi",
@@ -44,7 +45,7 @@ export default function ContactPage() {
                 <h3 className="text-sm font-semibold text-white-1">Connect</h3>
                 <div className="mt-3 flex gap-4">
                   <a
-                    href="https://github.com/Wobbly1212"
+                    href={siteConfig.social.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl border border-white-1/[0.08] bg-white-1/[0.03] px-4 py-2.5 text-xs text-light-gray/60 transition-all hover:border-accent/20 hover:text-light-gray hover:bg-accent/[0.04]"
@@ -53,7 +54,7 @@ export default function ContactPage() {
                     GitHub
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/hosein-darabi-618349279"
+                    href={siteConfig.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl border border-white-1/[0.08] bg-white-1/[0.03] px-4 py-2.5 text-xs text-light-gray/60 transition-all hover:border-accent/20 hover:text-light-gray hover:bg-accent/[0.04]"
@@ -77,7 +78,7 @@ export default function ContactPage() {
                     "Predictive modeling",
                     "Solution design & consulting",
                   ].map((item) => (
-                    <li key={item} className="flex items-center gap-2.5 text-sm text-light-gray/55">
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-light-gray/65">
                       <span className="block h-1 w-1 rounded-full bg-accent/50" />
                       {item}
                     </li>

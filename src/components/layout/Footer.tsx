@@ -3,13 +3,12 @@
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { motion } from "framer-motion";
-
-const EMAIL = "innovator.h.darabi@gmail.com";
+import { siteConfig } from "@/lib/config";
 
 const socialLinks = [
-  { href: "https://github.com/Wobbly1212", icon: Github, label: "GitHub" },
-  { href: "https://www.linkedin.com/in/hosein-darabi-618349279", icon: Linkedin, label: "LinkedIn" },
-  { href: `mailto:${EMAIL}`, icon: Mail, label: "Email" },
+  { href: siteConfig.social.github, icon: Github, label: "GitHub" },
+  { href: siteConfig.social.linkedin, icon: Linkedin, label: "LinkedIn" },
+  { href: `mailto:${siteConfig.email}`, icon: Mail, label: "Email" },
 ];
 
 export default function Footer() {
@@ -34,9 +33,9 @@ export default function Footer() {
           </span>
           <div>
             <Link href="/" className="text-sm font-medium text-white-1 transition-colors hover:text-accent-light">
-              Hossein Darabi
+              {siteConfig.name}
             </Link>
-            <p className="text-[11px] text-light-gray/30">Data Scientist & Developer</p>
+            <p className="text-[11px] text-light-gray/40">Data Scientist & Developer</p>
           </div>
         </div>
 
@@ -49,7 +48,7 @@ export default function Footer() {
               rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
               whileHover={{ y: -2 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className="text-light-gray/30 transition-colors hover:text-accent-light"
+              className="text-light-gray/40 transition-colors hover:text-accent-light"
               aria-label={label}
             >
               <Icon size={17} />
@@ -57,8 +56,8 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="text-[11px] text-light-gray/20">
-          &copy; {new Date().getFullYear()} Hossein Darabi
+        <p className="text-[11px] text-light-gray/30">
+          &copy; {new Date().getFullYear()} {siteConfig.name}
         </p>
       </div>
     </footer>

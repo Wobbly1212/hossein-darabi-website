@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Brain, Lightbulb, BarChart3, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const capabilities = [
   {
@@ -42,13 +42,7 @@ const capabilities = [
 ];
 
 export default function Capabilities() {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
+  const isMobile = useIsMobile();
 
   return (
     <section className="relative px-6 py-28">

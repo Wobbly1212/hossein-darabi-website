@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface NavItem {
   name: string;
@@ -20,23 +21,13 @@ interface NavBarProps {
 
 export function NavBar({ items, className }: NavBarProps) {
   const pathname = usePathname();
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
-  // Determine active tab from pathname
   const activeTab =
     items.find((item) => {
       if (item.url === "/") return pathname === "/";
       return pathname.startsWith(item.url);
     })?.name || items[0].name;
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div

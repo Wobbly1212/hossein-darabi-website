@@ -19,7 +19,7 @@ export default function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 max-w-2xl text-sm text-light-gray/55 md:text-base">
+        <p className="mt-3 max-w-2xl text-sm text-light-gray/65 md:text-base">
           {subtitle}
         </p>
       )}
