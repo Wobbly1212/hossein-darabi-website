@@ -71,7 +71,7 @@ export default function AboutPage() {
                 <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-accent/6 via-transparent to-transparent blur-2xl" />
                 <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-br from-accent/12 via-transparent to-accent/5" />
                 <Image
-                  src="/images/hossein.png"
+                  src="/images/3.png"
                   alt="Hossein Darabi"
                   width={280}
                   height={350}
@@ -103,38 +103,6 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
 
-        {/* Graduation photos */}
-        <AnimatedSection className="mt-16">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="group relative overflow-hidden rounded-2xl border border-white-1/[0.06]">
-              <Image
-                src="/images/1.jpeg"
-                alt="University graduation — M.Sc. Data Science thesis defense"
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-smoky-black/90 to-transparent px-5 pb-4 pt-10">
-                <p className="text-sm font-medium text-white-1">M.Sc. Thesis Defense</p>
-                <p className="text-xs text-light-gray/50">Data Stream Classification Research</p>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-2xl border border-white-1/[0.06]">
-              <Image
-                src="/images/2.jpeg"
-                alt="Apple Developer Academy graduation"
-                width={600}
-                height={400}
-                className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-smoky-black/90 to-transparent px-5 pb-4 pt-10">
-                <p className="text-sm font-medium text-white-1">Apple Developer Academy</p>
-                <p className="text-xs text-light-gray/50">Graduate — iOS Development & Product Design</p>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
         {/* Experience */}
         <AnimatedSection className="mt-24">
           <SectionHeading title="Experience" />
@@ -158,6 +126,42 @@ export default function AboutPage() {
                 </p>
               </div>
             ))}
+          </div>
+        </AnimatedSection>
+
+        {/* Graduation Photos */}
+        <AnimatedSection className="mt-14">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div className="group relative rounded-2xl border border-white-1/[0.06] bg-white-1/[0.02] p-3 transition-all duration-500 hover:border-accent/15 hover:bg-white-1/[0.04]">
+              <div className="relative overflow-hidden rounded-xl">
+                <Image
+                  src="/images/1.jpeg"
+                  alt="University graduation — M.Sc. Data Science thesis defense"
+                  width={600}
+                  height={400}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="mt-3 px-1 pb-1">
+                <p className="text-sm font-medium text-white-1">B.Sc. Graduation</p>
+                <p className="mt-0.5 text-xs text-light-gray/40">Supervised Classification of Data Streams</p>
+              </div>
+            </div>
+            <div className="group relative rounded-2xl border border-white-1/[0.06] bg-white-1/[0.02] p-3 transition-all duration-500 hover:border-accent/15 hover:bg-white-1/[0.04]">
+              <div className="relative overflow-hidden rounded-xl">
+                <Image
+                  src="/images/2.jpeg"
+                  alt="Apple Developer Academy graduation"
+                  width={600}
+                  height={400}
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="mt-3 px-1 pb-1">
+                <p className="text-sm font-medium text-white-1">Apple Developer Academy</p>
+                <p className="mt-0.5 text-xs text-light-gray/40">Graduate — iOS Development & Product Design</p>
+              </div>
+            </div>
           </div>
         </AnimatedSection>
 
