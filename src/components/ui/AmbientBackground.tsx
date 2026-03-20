@@ -11,18 +11,22 @@ export default function AmbientBackground() {
     setMounted(true);
     const update = () =>
       setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: Math.max(window.innerWidth, document.documentElement.clientWidth),
+        height: Math.max(window.innerHeight, document.documentElement.clientHeight, window.screen.height),
       });
     update();
     window.addEventListener("resize", update);
-    return () => window.removeEventListener("resize", update);
+    window.addEventListener("orientationchange", update);
+    return () => {
+      window.removeEventListener("resize", update);
+      window.removeEventListener("orientationchange", update);
+    };
   }, []);
 
   if (!mounted) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" style={{ width: '100vw', height: '100vh' }}>
+    <div className="pointer-events-none fixed z-0 overflow-hidden" style={{ top: '-env(safe-area-inset-top, 0px)', left: 0, right: 0, bottom: 0, width: '100vw', height: 'calc(100dvh + env(safe-area-inset-top, 0px) + env(safe-area-inset-bottom, 0px))' }}>
       <MeshGradient
         width={dimensions.width}
         height={dimensions.height}

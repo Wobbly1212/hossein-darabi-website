@@ -7,8 +7,8 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden px-6">
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 pt-28 pb-20 md:min-h-screen md:grid-cols-5 md:gap-16 md:pt-0 md:pb-0">
+    <section className="relative overflow-hidden px-6" style={{ minHeight: '100dvh' }}>
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 pt-28 pb-20 md:grid-cols-5 md:gap-16 md:pt-0 md:pb-0" style={{ minHeight: '100dvh' }}>
         {/* Left — Content (3 cols) */}
         <div className="md:col-span-3">
           {/* Availability status */}
@@ -138,7 +138,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-16 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex"
+        className="absolute left-1/2 -translate-x-1/2 flex-col items-center gap-3 hidden md:flex md:bottom-16 bottom-24"
       >
         <span className="text-[10px] tracking-[0.3em] text-light-gray/25 uppercase">
           Scroll

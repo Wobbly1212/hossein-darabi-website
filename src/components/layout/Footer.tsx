@@ -14,7 +14,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white-1/[0.05] bg-eerie-black-2/30 pb-20 sm:pb-0">
+    <footer className="relative border-t border-white-1/[0.05] bg-eerie-black-2/30 pb-20 sm:pb-0" style={{ paddingBottom: 'max(5rem, calc(env(safe-area-inset-bottom, 0px) + 5rem))' }}>
       {/* Animated top edge */}
       <motion.div
         animate={{ backgroundPosition: ["0% 0%", "200% 0%"] }}

@@ -41,9 +41,11 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-6 sm:bottom-auto sm:top-0 left-1/2 -translate-x-1/2 z-50 sm:pt-6",
+        "fixed left-1/2 -translate-x-1/2 z-50",
+        "sm:bottom-auto sm:top-0 sm:pt-6",
         className
       )}
+      style={{ bottom: isMobile ? 'calc(env(safe-area-inset-bottom, 0px) + 0.75rem)' : undefined }}
     >
       <div className="flex items-center gap-1 border border-white-1/[0.08] bg-smoky-black/40 px-1.5 py-1.5 rounded-full shadow-lg backdrop-blur-xl">
         {items.map((item) => {
