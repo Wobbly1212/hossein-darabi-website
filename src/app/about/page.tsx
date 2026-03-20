@@ -192,8 +192,8 @@ export default function AboutPage() {
         {/* Education — only M.Sc. */}
         <AnimatedSection className="mt-24">
           <SectionHeading title="Education" />
-          <div className="mt-10">
-            <div className="card shine-sweep max-w-md">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <div className="card shine-sweep">
               <p className="font-mono text-[10px] tracking-wider text-accent/50 uppercase">
                 Ongoing
               </p>
@@ -202,6 +202,17 @@ export default function AboutPage() {
               </h3>
               <p className="mt-1 text-sm text-light-gray/50">
                 Focus on machine learning, data stream mining, and AI systems
+              </p>
+            </div>
+            <div className="card shine-sweep">
+              <p className="font-mono text-[10px] tracking-wider text-accent/50 uppercase">
+                Completed
+              </p>
+              <h3 className="mt-2 text-base font-semibold text-white-1">
+                B.Sc. in Data Science
+              </h3>
+              <p className="mt-1 text-sm text-light-gray/50">
+                Thesis: Supervised Classification of Data Streams
               </p>
             </div>
           </div>
