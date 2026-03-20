@@ -38,7 +38,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ backgroundColor: '#0b1120' }}>
+      <head>
+        <meta name="theme-color" content="#0b1120" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
       <body>
         <AmbientBackground />
         <NavbarWrapper />
