@@ -1,26 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --smoky-black: hsl(220, 15%, 5%);
+  --eerie-black-1: hsl(220, 12%, 11%);
+  --eerie-black-2: hsl(220, 12%, 9%);
+  --onyx: hsl(220, 10%, 15%);
+  --jet: hsl(220, 8%, 20%);
+  --light-gray: hsl(220, 10%, 82%);
+  --white-1: hsl(0, 0%, 100%);
+  --accent: hsl(215, 90%, 60%);
+  --accent-light: hsl(215, 85%, 70%);
+  --accent-muted: hsl(215, 60%, 50%);
+
+  --bg-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(220, 10%, 20%) 3%,
+    hsl(220, 12%, 14%) 97%
+  );
+  --text-gradient-blue: linear-gradient(
+    to right,
+    hsl(215, 90%, 65%),
+    hsl(200, 85%, 60%)
+  );
+
+  --shadow-1: -4px 8px 24px hsla(220, 30%, 0%, 0.2);
+  --shadow-3: 0 16px 40px hsla(220, 30%, 0%, 0.2);
+  --shadow-glow-blue: 0 0 60px hsla(215, 90%, 60%, 0.08);
+  --shadow-glow-blue-strong: 0 0 80px hsla(215, 90%, 60%, 0.15);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-smoky-black: hsl(220, 15%, 5%);
+  --color-eerie-black-1: hsl(220, 12%, 11%);
+  --color-eerie-black-2: hsl(220, 12%, 9%);
+  --color-onyx: hsl(220, 10%, 15%);
+  --color-jet: hsl(220, 8%, 20%);
+  --color-light-gray: hsl(220, 10%, 82%);
+  --color-white-1: hsl(0, 0%, 100%);
+  --color-white-2: hsl(0, 0%, 96%);
+  --color-accent: hsl(215, 90%, 60%);
+  --color-accent-light: hsl(215, 85%, 70%);
+  --color-accent-muted: hsl(215, 60%, 50%);
+  --font-poppins: 'Poppins', sans-serif;
+  --font-serif: 'Instrument Serif', serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--smoky-black);
+  color: var(--light-gray);
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { text-decoration: none; color: inherit; }
+ul, ol { list-style: none; }
+img { max-width: 100%; height: auto; }
+
+.font-display { font-family: 'Instrument Serif', serif; }
+
+.text-gradient {
+  background: var(--text-gradient-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--bg-gradient-onyx);
+  border: 1px solid hsl(220, 8%, 22%);
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+  padding: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-3), var(--shadow-glow-blue);
+  border-color: hsla(215, 90%, 60%, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ── Section divider ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    hsla(215, 90%, 60%, 0.1) 30%,
+    hsla(215, 90%, 60%, 0.2) 50%,
+    hsla(215, 90%, 60%, 0.1) 70%,
+    transparent
+  );
+}
+
+/* ── Glowing button ── */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsla(215, 90%, 60%, 0.12), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-glow:hover::before {
+  left: 100%;
+}
+
+/* ── Shine sweep ── */
+.shine-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-sweep::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    transparent 40%,
+    hsla(215, 90%, 60%, 0.03) 45%,
+    hsla(215, 90%, 60%, 0.05) 50%,
+    hsla(215, 90%, 60%, 0.03) 55%,
+    transparent 60%
+  );
+  transform: rotate(-45deg) translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.shine-sweep:hover::after {
+  transform: rotate(-45deg) translateY(-100%);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--smoky-black); }
+::-webkit-scrollbar-thumb { background: var(--jet); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--onyx); }
+
+::selection {
+  background: hsla(215, 90%, 60%, 0.2);
+  color: var(--white-1);
 }
