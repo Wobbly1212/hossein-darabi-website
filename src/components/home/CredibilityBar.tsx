@@ -14,11 +14,12 @@ const credentials = [
 export default function CredibilityBar() {
   return (
     <section className="relative px-6 py-12">
-      <div className="section-divider mx-auto mb-12 max-w-5xl" />
+      <div className="section-divider mx-auto mb-10 max-w-5xl" />
 
       <div className="mx-auto max-w-5xl">
         <AnimatedSection>
           <div className="relative overflow-hidden rounded-2xl border border-white-1/[0.06] bg-white-1/[0.02] px-8 py-8 backdrop-blur-sm">
+            <p className="mb-6 text-center text-sm font-medium tracking-[0.2em] text-accent/50 uppercase">At a Glance</p>
             {/* Animated top glow line */}
             <motion.div
               animate={{ backgroundPosition: ["0% 0%", "200% 0%"] }}

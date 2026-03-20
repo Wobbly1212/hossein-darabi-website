@@ -9,8 +9,8 @@ const EMAIL = "innovator.h.darabi@gmail.com";
 
 export default function ContactCTA() {
   return (
-    <section className="relative px-6 py-32 pb-40 overflow-hidden">
-      <div className="section-divider mx-auto mb-20 max-w-4xl" />
+    <section className="relative px-6 py-20 pb-28 overflow-hidden">
+      <div className="section-divider mx-auto mb-12 max-w-4xl" />
 
       {/* Background glow */}
       <motion.div

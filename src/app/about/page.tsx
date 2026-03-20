@@ -18,7 +18,7 @@ const experience = [
       "Led research on supervised classification of data streams, focusing on how models handle concept drift in live environments. Designed experiments, evaluated algorithms, and delivered a complete thesis with practical findings.",
   },
   {
-    period: "2024 — 2025",
+    period: "2024 — 2024",
     role: "Apple Developer Academy",
     context: "Apple",
     description:
@@ -104,7 +104,7 @@ export default function AboutPage() {
         </AnimatedSection>
 
         {/* Experience */}
-        <AnimatedSection className="mt-24">
+        <AnimatedSection className="mt-16">
           <SectionHeading title="Experience" />
           <div className="mt-10 space-y-0">
             {experience.map((exp, i) => (
@@ -166,7 +166,7 @@ export default function AboutPage() {
         </AnimatedSection>
 
         {/* Skills */}
-        <AnimatedSection className="mt-24">
+        <AnimatedSection className="mt-16">
           <SectionHeading title="Technical Toolkit" />
           <div className="mt-10 grid gap-8 sm:grid-cols-2">
             {Object.entries(skills).map(([category, items]) => (
@@ -190,7 +190,7 @@ export default function AboutPage() {
         </AnimatedSection>
 
         {/* Education — only M.Sc. */}
-        <AnimatedSection className="mt-24">
+        <AnimatedSection className="mt-16">
           <SectionHeading title="Education" />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             <div className="card shine-sweep">

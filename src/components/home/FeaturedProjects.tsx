@@ -140,8 +140,8 @@ function ProjectCard({
 
 export default function FeaturedProjects() {
   return (
-    <section className="relative px-6 py-24">
-      <div className="section-divider mx-auto mb-20 max-w-5xl" />
+    <section className="relative px-6 py-16">
+      <div className="section-divider mx-auto mb-12 max-w-5xl" />
 
       <div className="mx-auto max-w-5xl">
         <AnimatedSection>
