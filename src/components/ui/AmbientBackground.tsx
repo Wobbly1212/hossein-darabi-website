@@ -22,7 +22,7 @@ export default function AmbientBackground() {
   if (!mounted) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 w-screen h-screen">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden" style={{ width: '100vw', height: '100vh' }}>
       <MeshGradient
         width={dimensions.width}
         height={dimensions.height}

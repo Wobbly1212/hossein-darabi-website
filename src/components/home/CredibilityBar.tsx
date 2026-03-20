@@ -14,7 +14,7 @@ const credentials = [
 export default function CredibilityBar() {
   return (
     <section className="relative px-6 py-12">
-      <div className="section-divider mx-auto mb-10 max-w-5xl" />
+      <div className="section-divider mx-auto mb-12 max-w-5xl" />
 
       <div className="mx-auto max-w-5xl">
         <AnimatedSection>

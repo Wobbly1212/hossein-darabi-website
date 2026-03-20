@@ -51,8 +51,8 @@ export default function Capabilities() {
   }, []);
 
   return (
-    <section className="relative px-6 py-16">
-      <div className="section-divider mx-auto mb-12 max-w-5xl" />
+    <section className="relative px-6 py-28">
+      <div className="section-divider mx-auto mb-20 max-w-5xl" />
 
       <div className="relative mx-auto max-w-5xl">
         <AnimatedSection>

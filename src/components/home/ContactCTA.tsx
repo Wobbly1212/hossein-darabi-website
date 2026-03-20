@@ -9,14 +9,14 @@ const EMAIL = "innovator.h.darabi@gmail.com";
 
 export default function ContactCTA() {
   return (
-    <section className="relative px-6 py-20 pb-28 overflow-hidden">
-      <div className="section-divider mx-auto mb-12 max-w-4xl" />
+    <section className="relative px-6 py-32 pb-40 overflow-hidden">
+      <div className="section-divider mx-auto mb-20 max-w-4xl" />
 
       {/* Background glow */}
       <motion.div
         animate={{ opacity: [0.03, 0.06, 0.03], scale: [1, 1.04, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-full max-w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           background: "radial-gradient(ellipse, hsla(215, 90%, 60%, 0.8) 0%, transparent 65%)",
         }}
