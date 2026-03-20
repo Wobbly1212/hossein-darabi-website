@@ -120,7 +120,7 @@ export default function Hero() {
 
             <div className="relative overflow-hidden rounded-2xl border border-accent/10 bg-eerie-black-1">
               <Image
-                src="/images/3.jpg"
+                src="/images/3.jpeg"
                 alt="Hossein Darabi"
                 width={480}
                 height={600}

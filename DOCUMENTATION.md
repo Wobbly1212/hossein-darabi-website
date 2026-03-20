@@ -41,7 +41,7 @@ npm start
 hossein-darabi-website/
 ├── public/
 │   └── images/
-│       ├── 3.jpg                         # My profile photo
+│       ├── 3.jpeg                         # My profile photo
 │       ├── 1.jpeg                        # B.Sc. graduation photo
 │       └── 2.jpeg                        # Apple Developer Academy graduation
 ├── src/
