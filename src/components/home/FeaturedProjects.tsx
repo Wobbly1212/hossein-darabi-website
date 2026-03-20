@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Github } from "lucide-react";
@@ -11,6 +11,17 @@ import { getFeaturedProjects } from "@/data/projects";
 
 const projects = getFeaturedProjects();
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return mobile;
+}
+
 function ProjectCard({
   project,
   index,
@@ -19,6 +30,7 @@ function ProjectCard({
   index: number;
 }) {
   const router = useRouter();
+  const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -34,7 +46,7 @@ function ProjectCard({
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
-      if (!ref.current) return;
+      if (isMobile || !ref.current) return;
       const rect = ref.current.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width;
       const py = (e.clientY - rect.top) / rect.height;
@@ -43,7 +55,7 @@ function ProjectCard({
       ref.current.style.setProperty("--mouse-x", `${px * 100}%`);
       ref.current.style.setProperty("--mouse-y", `${py * 100}%`);
     },
-    [x, y]
+    [x, y, isMobile]
   );
 
   function handleMouseLeave() {
@@ -56,8 +68,8 @@ function ProjectCard({
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformPerspective: 800 }}
-      className="will-change-transform"
+      style={isMobile ? undefined : { rotateX, rotateY, transformPerspective: 800 }}
+      className={isMobile ? "" : "will-change-transform"}
     >
       <div
         role="link"
@@ -68,7 +80,7 @@ function ProjectCard({
       >
         <div className="card shine-sweep relative flex h-full flex-col overflow-hidden">
           {/* Large faded number */}
-          <span className="pointer-events-none absolute top-4 right-6 font-display text-7xl leading-none text-white-1/[0.03] transition-all duration-500 select-none group-hover:text-white-1/[0.06]">
+          <span className="pointer-events-none absolute top-4 right-6 font-display text-7xl leading-none text-white-1/[0.03] md:text-white-1/[0.03] transition-all duration-500 select-none group-hover:text-white-1/[0.06]">
             {String(index + 1).padStart(2, "0")}
           </span>
 
@@ -92,12 +104,12 @@ function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="rounded-full border border-white-1/10 p-2 text-white-1/30 opacity-0 transition-all duration-300 group-hover:opacity-100 hover:text-accent-light hover:border-accent/30"
+                  className="rounded-full border border-white-1/10 p-2 text-white-1/30 opacity-100 md:opacity-0 transition-all duration-300 md:group-hover:opacity-100 hover:text-accent-light hover:border-accent/30"
                 >
                   <Github size={14} />
                 </a>
               )}
-              <div className="rounded-full border border-white-1/10 p-2 text-white-1/30 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:text-accent-light group-hover:border-accent/30">
+              <div className="rounded-full border border-white-1/10 p-2 text-white-1/30 opacity-100 md:opacity-0 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:text-accent-light md:group-hover:border-accent/30">
                 <ArrowUpRight size={14} />
               </div>
             </div>
@@ -114,7 +126,7 @@ function ProjectCard({
             {project.tags.slice(0, 4).map((tag) => (
               <span
                 key={tag}
-                className="rounded-md border border-transparent bg-white-1/[0.04] px-2.5 py-1 text-xs text-light-gray/45 transition-all duration-300 group-hover:border-white-1/[0.08] group-hover:text-light-gray/60"
+                className="rounded-md border border-white-1/[0.08] md:border-transparent bg-white-1/[0.04] px-2.5 py-1 text-xs text-light-gray/50 md:text-light-gray/45 transition-all duration-300 md:group-hover:border-white-1/[0.08] md:group-hover:text-light-gray/60"
               >
                 {tag}
               </span>

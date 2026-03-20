@@ -18,7 +18,7 @@ const experience = [
       "Led research on supervised classification of data streams, focusing on how models handle concept drift in live environments. Designed experiments, evaluated algorithms, and delivered a complete thesis with practical findings.",
   },
   {
-    period: "2024 — 2024",
+    period: "2024 — 2025",
     role: "Apple Developer Academy",
     context: "Apple",
     description:

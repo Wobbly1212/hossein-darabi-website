@@ -33,11 +33,11 @@ export default function ProjectsPage() {
                     <p className="relative text-xs font-medium tracking-wider text-accent-light/60 uppercase">{project.category}</p>
                     <div className="absolute top-4 right-4 flex gap-2">
                       {project.github && (
-                        <div className="rounded-full border border-white-1/10 p-1.5 text-white-1/20 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:text-accent-light group-hover:border-accent/30">
+                        <div className="rounded-full border border-white-1/10 p-1.5 text-white-1/30 opacity-100 md:opacity-0 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:text-accent-light md:group-hover:border-accent/30">
                           <Github size={12} />
                         </div>
                       )}
-                      <div className="rounded-full border border-white-1/10 p-1.5 text-white-1/20 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:text-accent-light group-hover:border-accent/30">
+                      <div className="rounded-full border border-white-1/10 p-1.5 text-white-1/30 opacity-100 md:opacity-0 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:text-accent-light md:group-hover:border-accent/30">
                         <ArrowUpRight size={12} />
                       </div>
                     </div>

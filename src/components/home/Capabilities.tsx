@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Brain, Lightbulb, BarChart3, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -41,6 +42,14 @@ const capabilities = [
 ];
 
 export default function Capabilities() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
     <section className="relative px-6 py-28">
       <div className="section-divider mx-auto mb-20 max-w-5xl" />
@@ -57,27 +66,27 @@ export default function Capabilities() {
           {capabilities.map((cap, i) => (
             <AnimatedSection key={cap.title} delay={i * 0.1}>
               <motion.div
-                whileHover={{ x: 4 }}
+                whileHover={isMobile ? undefined : { x: 4 }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 className="group relative border-b border-white-1/[0.06] py-8 transition-all first:border-t"
               >
-                {/* Blue left accent on hover */}
-                <div className="absolute top-0 left-0 h-full w-0.5 origin-top scale-y-0 bg-accent transition-transform duration-300 group-hover:scale-y-100" />
+                {/* Blue left accent — visible on mobile, hover-only on desktop */}
+                <div className="absolute top-0 left-0 h-full w-0.5 bg-accent/30 md:bg-accent md:origin-top md:scale-y-0 transition-transform duration-300 md:group-hover:scale-y-100" />
 
-                {/* Subtle row glow on hover */}
-                <div className="absolute inset-0 -left-4 rounded-r-xl bg-gradient-to-r from-accent/[0.03] to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
+                {/* Subtle row glow on hover — desktop only */}
+                <div className="absolute inset-0 -left-4 rounded-r-xl bg-gradient-to-r from-accent/[0.03] to-transparent opacity-0 transition-opacity duration-400 md:group-hover:opacity-100" />
 
-                <div className="relative flex gap-6 pl-6">
+                <div className="relative flex gap-4 md:gap-6 pl-4 md:pl-6">
                   <span className="hidden font-mono text-[11px] text-accent/25 transition-colors duration-300 group-hover:text-accent/60 sm:block">
                     {cap.num}
                   </span>
 
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-accent/[0.1] bg-accent/[0.04] text-accent/40 transition-all duration-400 group-hover:border-accent/20 group-hover:bg-accent/[0.1] group-hover:text-accent-light group-hover:shadow-lg group-hover:shadow-accent/5">
+                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-accent/15 md:border-accent/[0.1] bg-accent/[0.06] md:bg-accent/[0.04] text-accent/60 md:text-accent/40 transition-all duration-400 md:group-hover:border-accent/20 md:group-hover:bg-accent/[0.1] md:group-hover:text-accent-light md:group-hover:shadow-lg md:group-hover:shadow-accent/5">
                     <cap.icon size={20} strokeWidth={1.5} />
                   </div>
 
                   <div className="flex-1">
-                    <h3 className="text-base font-semibold text-white-1 transition-colors duration-300 group-hover:text-accent-light">
+                    <h3 className="text-base font-semibold text-white-1 transition-colors duration-300 md:group-hover:text-accent-light">
                       {cap.title}
                     </h3>
                     <p className="mt-2 max-w-xl text-sm leading-relaxed text-light-gray/60">
@@ -87,7 +96,7 @@ export default function Capabilities() {
                       {cap.tech.map((t) => (
                         <span
                           key={t}
-                          className="rounded-md border border-transparent bg-white-1/[0.04] px-2.5 py-1 text-xs text-light-gray/45 transition-all duration-300 group-hover:border-white-1/[0.08] group-hover:text-light-gray/70"
+                          className="rounded-md border border-white-1/[0.06] md:border-transparent bg-white-1/[0.04] px-2.5 py-1 text-xs text-light-gray/50 md:text-light-gray/45 transition-all duration-300 md:group-hover:border-white-1/[0.08] md:group-hover:text-light-gray/70"
                         >
                           {t}
                         </span>
