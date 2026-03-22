@@ -71,10 +71,10 @@ export default function AboutPage() {
                 <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-accent/6 via-transparent to-transparent blur-2xl" />
                 <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-br from-accent/12 via-transparent to-accent/5" />
                 <Image
-                  src="/images/3.jpeg"
+                  src="/images/new.jpeg"
                   alt="Hossein Darabi"
                   width={280}
-                  height={146}
+                  height={280}
                   className="relative rounded-2xl border border-white-1/10 object-cover"
                 />
               </div>
