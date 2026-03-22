@@ -120,10 +120,10 @@ export default function Hero() {
 
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-accent/10 bg-eerie-black-1">
               <Image
-                src="/images/3.jpeg"
+                src="/images/new.jpeg"
                 alt="Hossein Darabi"
-                width={960}
-                height={500}
+                width={480}
+                height={480}
                 className="absolute inset-0 h-full w-full object-cover object-top"
                 priority
               />
