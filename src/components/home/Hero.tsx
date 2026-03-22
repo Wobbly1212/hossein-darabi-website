@@ -118,13 +118,13 @@ export default function Hero() {
 
             <div className="absolute -inset-[2px] rounded-2xl bg-gradient-to-br from-accent/15 via-transparent to-accent/5" />
 
-            <div className="relative overflow-hidden rounded-2xl border border-accent/10 bg-eerie-black-1">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-accent/10 bg-eerie-black-1">
               <Image
                 src="/images/3.jpeg"
                 alt="Hossein Darabi"
-                width={480}
-                height={600}
-                className="h-auto w-full object-cover"
+                width={960}
+                height={500}
+                className="absolute inset-0 h-full w-full object-cover object-top"
                 priority
               />
               <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-smoky-black via-smoky-black/60 to-transparent" />
